@@ -1,6 +1,6 @@
 // app/loan/index.tsx
 import { useRouter } from 'expo-router';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import COLORS from '../../constants/Colors';
 
 export default function Welcome() {
@@ -9,9 +9,10 @@ export default function Welcome() {
   return (
     <View style={styles.screen}>
       <View style={styles.card}>
-        {/* Replace with actual logo when ready */}
-        <View style={styles.logoPlaceholder} />
-        <Text style={styles.title}>Temple View Capital</Text>
+        <Image
+          source={require('../../assets/images/tvc_logo.png')}
+          style={styles.logo}
+        />
         <Text style={styles.subtitle}>Welcome to Temple View Capital</Text>
         <Text style={styles.small}>Apply for a loan in just a few minutes…</Text>
 
@@ -38,18 +39,20 @@ const styles = StyleSheet.create({
     padding: 24,
     backgroundColor: '#f0f0f0',
     borderRadius: 8,
+    filter: "drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5))",
     alignItems: 'center',
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 8,
     elevation: 4,
   },
-  logoPlaceholder: {
-    width: 120,
-    height: 120,
-    marginBottom: 16,
-    backgroundColor: COLORS.navy,
-    borderRadius: 60,
+  logo: {
+    width: 300,
+    height: 200,
+    borderRadius: 40,
+    filter: "drop-shadow(1px 1px 3px rgba(0, 0, 0, 5))",
+    resizeMode: 'contain',
+    marginBottom: 20,
   },
   title: {
     fontSize: 24,
@@ -58,7 +61,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   subtitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: '500',
     color: COLORS.accent,
     marginBottom: 4,
@@ -71,6 +74,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: COLORS.navy,
+    filter: "drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5))",
     paddingVertical: 14,
     paddingHorizontal: 60,
     borderRadius: 8,
@@ -80,18 +84,5 @@ const styles = StyleSheet.create({
     color: COLORS.buttonText,
     fontSize: 16,
     fontWeight: '600',
-  },
-  progress: {
-    flexDirection: 'row',
-    marginTop: 24,
-    justifyContent: 'center',
-    width: '100%',
-  },
-  dot: {
-    width: 10,
-    height: 10,
-    backgroundColor: '#bbb',
-    borderRadius: 5,
-    marginHorizontal: 4,
   },
 });

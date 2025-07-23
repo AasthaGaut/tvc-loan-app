@@ -12,7 +12,7 @@ export default function PersonalInfoScreen() {
 
 
   return (
-    <View style={{ flex: 1, backgroundColor: COLORS.background, padding: 24, justifyContent: 'center' }}>
+    <View style={{ flex: 1, backgroundColor: COLORS.background, padding: 24, justifyContent: 'center',  }}>
       <Text style={{ fontSize: 24, fontWeight: 'bold', color: COLORS.navy, marginBottom: 8 }}>
         Personal Info
       </Text>

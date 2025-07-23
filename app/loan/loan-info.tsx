@@ -2,13 +2,30 @@ import ProgressDots from '@/components/ProgressDots';
 import COLORS from '@/constants/Colors';
 import { useForm } from '@/hooks/formContext';
 import { useRouter } from 'expo-router';
+import { useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function LoanInfoScreen() {
   const router = useRouter();
   const { formData, updateField } = useForm();
-  console.log('Current formData:', formData);
+  const loanOptions = ['Bridge', 'DSCR', 'Fix & Flip', 'Rental', 'Other'];
+  const [selectedLoan, setSelectedLoan] = useState(formData.loanType || '');
+  const [customLoan, setCustomLoan] = useState('');
 
+  const handleSelect = (option: string) => {
+    setSelectedLoan(option);
+    if (option !== 'Other') {
+      updateField('loanType', option);
+      setCustomLoan('');
+    } else {
+      updateField('loanType', '');
+    }
+  };
+
+  const handleCustomInput = (text: string) => {
+    setCustomLoan(text);
+    updateField('loanType', text);
+  };
 
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.background, padding: 24, justifyContent: 'center' }}>
@@ -20,20 +37,42 @@ export default function LoanInfoScreen() {
       </Text>
 
       <View style={{ backgroundColor: '#f5f5f5', padding: 16, borderRadius: 8 }}>
-        <Text style={{ color: COLORS.navy, marginBottom: 4 }}>Loan Type</Text>
-        <TextInput
-          placeholder="Bridge, DSCR, Fix & Flip..."
-          value={formData.loanType || ''}
-          onChangeText={(text) => updateField('loanType', text)}
-          style={{
-            borderColor: COLORS.border,
-            borderWidth: 1,
-            padding: 12,
-            borderRadius: 6,
-            marginBottom: 16,
-            backgroundColor: '#fff',
-          }}
-        />
+        <Text style={{ color: COLORS.navy, marginBottom: 12 }}>Loan Type</Text>
+
+        {loanOptions.map((option) => (
+          <TouchableOpacity
+            key={option}
+            onPress={() => handleSelect(option)}
+            style={{
+              padding: 12,
+              borderRadius: 6,
+              borderWidth: 1,
+              borderColor: selectedLoan === option ? COLORS.primary : COLORS.border,
+              backgroundColor: selectedLoan === option ? COLORS.primary : '#fff',
+              marginBottom: 8,
+            }}
+          >
+            <Text style={{ color: selectedLoan === option ? '#fff' : COLORS.text }}>
+              {option}
+            </Text>
+          </TouchableOpacity>
+        ))}
+
+        {selectedLoan === 'Other' && (
+          <TextInput
+            placeholder="Please specify your loan type"
+            value={customLoan}
+            onChangeText={handleCustomInput}
+            style={{
+              borderColor: COLORS.border,
+              borderWidth: 1,
+              padding: 12,
+              borderRadius: 6,
+              marginTop: 8,
+              backgroundColor: '#fff',
+            }}
+          />
+        )}
       </View>
 
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 24 }}>

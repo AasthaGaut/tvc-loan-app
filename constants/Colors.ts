@@ -1,7 +1,7 @@
 const COLORS = {
   background: '#FFF5EF',
   primary: '#1E1E1E',
-  accent: '#CB012E',
+  accent: 'rgba(168, 6, 41, 1)',
   navy: '#00213F',
   secondary: '#FDEDE8',      // light peach/pink background for cards
   text: '#1E1E1E',            // main text color
