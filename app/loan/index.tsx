@@ -13,8 +13,8 @@ export default function Welcome() {
           source={require('../../assets/images/tvc_logo.png')}
           style={styles.logo}
         />
-        <Text style={styles.subtitle}>Welcome to Temple View Capital</Text>
-        <Text style={styles.small}>Apply for a loan in just a few minutes…</Text>
+        <Text style={styles.title}>Welcome to Temple View Capital</Text>
+        <Text style={styles.subtitle}>Apply for a loan in just a few minutes…</Text>
 
         <TouchableOpacity
           style={styles.button}
@@ -55,16 +55,18 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   title: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: COLORS.primary,
-    marginBottom: 8,
-  },
-  subtitle: {
     fontSize: 20,
     fontWeight: '500',
+    fontFamily: 'sans-serif',
+    color: COLORS.primary,
+    marginBottom: 20,
+  },
+  subtitle: {
+    fontSize: 14,
+    fontWeight: '600',
+    fontFamily: 'sans-serif',
     color: COLORS.accent,
-    marginBottom: 4,
+    marginBottom: 10,
   },
   small: {
     fontSize: 14,
@@ -82,7 +84,8 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: COLORS.buttonText,
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: 14,
+    fontWeight: '500',
+    fontFamily: 'sans-serif',
   },
 });
