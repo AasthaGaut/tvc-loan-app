@@ -2,10 +2,10 @@
 import ProgressDots from '@/components/ProgressDots';
 import COLORS from '@/constants/Colors';
 import { useForm } from '@/hooks/formContext';
-import { useRouter } from 'expo-router';
-import { Linking, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { useState } from 'react';
 import Checkbox from 'expo-checkbox';
+import { useRouter } from 'expo-router';
+import { useState } from 'react';
+import { Linking, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function PersonalInfoScreen() {
   const router = useRouter();

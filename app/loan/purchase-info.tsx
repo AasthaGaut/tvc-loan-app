@@ -24,7 +24,7 @@ export default function PurchaseInfoScreen() {
         <TextInput
           placeholder="$"
           keyboardType="numeric"
-          value={formData.purchasePrice || ''}
+          value={formData.PurchasePrice || ''}
           onChangeText={(text) => updateField('PurchasePrice', text)}
           style={{
             borderColor: COLORS.border,
@@ -41,7 +41,7 @@ export default function PurchaseInfoScreen() {
         <TextInput
           placeholder="$"
           keyboardType="numeric"
-          value={formData.rehabBudget || ''}
+          value={formData.RehabBudget || ''}
           onChangeText={(text) => updateField('RehabBudget', text)}
           style={{
             borderColor: COLORS.border,
@@ -58,7 +58,7 @@ export default function PurchaseInfoScreen() {
         <TextInput
           placeholder="$"
           keyboardType="numeric"
-          value={formData.arv || ''}
+          value={formData.Arv || ''}
           onChangeText={(text) => updateField('Arv', text)}
           style={{
             borderColor: COLORS.border,

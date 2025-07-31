@@ -3,15 +3,21 @@ import { useState } from 'react';
 import { db } from '../lib/firebase';
 
 export type LoanFormData = {
-  fullName?: string;
-  phone?: string;
-  email?: string;
-  loanType?: string;
-  purchasePrice?: string;
-  rehabBudget?: string;
-  arv?: string;
-  creditScore?: string;
-  propertyAddress?: string;
+  FirstName?: string;
+  LastName?: string,
+  Phone?: string;
+  Email?: string;
+  EntityName?: string;
+  LoanType?: string;
+  PurchasePrice?: string;
+  RehabBudget?: string;
+  Arv?: string;
+  CreditScore?: string;
+  Street?: string;
+  City?: string;
+  State?: string;
+  Zip?: string;
+
 };
 
 export function useLoanForm() {

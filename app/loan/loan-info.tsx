@@ -3,17 +3,17 @@ import ProgressDots from '@/components/ProgressDots';
 import COLORS from '@/constants/Colors';
 import { useForm } from '@/hooks/formContext';
 import { useRouter } from 'expo-router';
-import { Text, TouchableOpacity, View } from 'react-native';
 import { useState } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
 
 export default function LoanInfoScreen() {
   const router = useRouter();
   const { formData, updateField } = useForm();
-  const [selectedLoanType, setSelectedLoanType] = useState(formData.loanType || '');
+  const [selectedLoanType, setSelectedLoanType] = useState(formData.LoanType || '');
 
   const handleSelect = (type: string) => {
     setSelectedLoanType(type);
-    updateField('loanType', type);
+    updateField('LoanType', type);
   };
 
   const loanOptions = ['Fix & Flip / Bridge', 'Ground Up Construction', 'Rental Property'];
@@ -40,7 +40,6 @@ export default function LoanInfoScreen() {
               marginBottom: 12,
               borderWidth: 1,
               borderColor: COLORS.border,
-              fontFamily: 'sans-serif', 
             }}
           >
             <Text style={{ color: selectedLoanType === option ? '#fff' : COLORS.navy }}>{option}</Text>

@@ -10,7 +10,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 export default function CreditScoreScreen() {
   const router = useRouter();
   const { formData, updateField } = useForm();
-  const [score, setScore] = useState(Number(formData.creditScore) || 650);
+  const [score, setScore] = useState(Number(formData.CreditScore) || 650);
 
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.background, padding: 24, justifyContent: 'center' }}>
